@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<!--
+   index.html
+ -->  
+   
+   
+   
+<head>
+    <meta charset="utf-8" />
+    <title>Klasa1a.html</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Klasa 1a</h1>
+    <h2>Lista uczniów</h2>
+    
+    <div id="menu">
+        <a class="menu" href="index.1html">Strona główna</a>
+        <a class="menu" href="listy.html">Listy</a>
+        <a class="menu" href="plan.html">Plan</a>
+        <a class="menu" href="specjalne/klasa1a.html">Klasa 1a</a>
+    </div>
+    <div id="tresc">
+    <h1>Nagłówek 1</h1>
+    <h2>Ulubione obrazki</h2>
+    
+    <div>
+        <img src="https://www.cbdzoe.pl/img/artykuly/rzeczy-ktore-wie-twoj-pies-artykuly-cbdzoe-05.jpg">
+        <a href="https://www.cbdzoe.pl/img/artykuly/rzeczy-ktore-wie-twoj-pies-artykuly-cbdzoe-05.jpg>Pies">Pies</a>
+        
+    </div>
+    
+    
+    <h3>Nagłowek 3</h3>
+    <h4>Nagłówek 4</h4>
+    <h5>Nagłówek 5</h5>
+    <h6>Nagłówek 6</h6>
+    </div> <!-- /tresc -->
+    <div id="stopka">
+        <p>&copy; by Who Knows!</p>
+    </div>
+</body>
+
+
+</html>
