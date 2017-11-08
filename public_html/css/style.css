@@ -2,7 +2,7 @@ body {
    font-family: arial, tahoma, verdana, serif;
    font-size: 12pt;
    line-height: 1.5em;
-   background-color: yellow;
+   background-color: green;
    }
 
 h1 {
@@ -10,6 +10,27 @@ h1 {
    
 }
 
+img {border: 5px solid black;} /*0,0,0,1*/
+
+.header img { border: 8px solid yellow;} /*0,0,1,1,*/
+
+div#header{
+   border-color: red;
+}
+
+#header img { border-color: purple; } /*0,1,0,1*/
+
+
+#header {
+     padding-top: 50px;
+     border-top: 40px dashed blue;
+}
+
+.header {
+    padding: 20px;
+    border: 10px solid blue;
+    margin: 15px;
+}
 h1, h2 {
     text-align: center;
     }
