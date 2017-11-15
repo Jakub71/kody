@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="wDesign">
+	<title>widocznosc</title>
+	<style type="text/css"> 
+        .hide1{display: none;}
+        .hide2{visibility: hidden;}
+        .hide3{ position:absolute; top:-1000px;  left: -1000px; background-color: green;}
+        </style>
+</head>
+
+<body>
+<div class="hide3" id="akapit1">
+    <p>1) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores modi inventore nihil, rem eius. Doloribus numquam, nulla officiis necessitatibus tempore, sed tenetur accusamus dignissimos eos. Eveniet nostrum animi recusandae temporibus?</p>
+    </div>
+    <input type="button" value="Odkryj 1" onclick="odkryj3();">
+	<p class="hide2" id="akapit2">2)Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus eum illo asperiores voluptatum provident aperiam quis ullam sequi, facere, rem nisi dignissimos, praesentium magni eius eveniet quo a commodi tempore.</p>
+	<button onclick="ukryj2();">Ukryj2</button>
+	<button onclick="odkryj2();">Odkryj 2</button>
+	
+	<p class="hide1" id="akapit3">3)Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum rem aliquam, ea ipsam, reiciendis sunt. Delectus placeat voluptates aspernatur cupiditate fuga quaerat, excepturi accusamus provident aperiam, quod adipisci mollitia consequuntur.</p>
+	<input type="button" value="Odkryj 3" onclick="odkryj1();">
+	<p>4)Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias illo est ipsa, asperiores distinctio accusantium, ab. Labore alias consequatur autem optio harum est sapiente, repudiandae ratione aperiam, sit eveniet! Debitis.</p>
+	<script type="text/javascript">
+    function odkryj2(){
+        obj = document.getElementById('akapit2');
+        obj.style.visibility = 'visible'; 
+    }
+        function ukryj2() {
+            obj = document.getElementById('akapit2');
+            obj.style.visibility = 'hidden';
+        }
+        function odkryj3() {
+            obj = document.getElementById('akapit1');
+            obj.style.position = 'relative';
+            obj.style.top = 0;
+            obj.style.left = 0;
+        }    
+        function odkryj1(){
+            obj = document.getElementById('akapit3') 
+            obj.style.display='block';
+        }
+    </script>
+</body>
+
+</html>
