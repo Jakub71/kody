@@ -8,20 +8,21 @@ def main(args):
     ileliczb = input("Podaj ilość typowanych liczb: ")
     maksliczba = input("Podaj maks. losowana liczbę: ")
     print("Wytypuj {} z {} liczb".format(ileliczb, maksliczba))
-    exit()
 
-    liczba = random.randint(1, 10)
     # komentarz
-    # komentarz
-    for i in range(3):
-        odp = input("Podaj liczbę od 1 do 10: ")
-        print(" Podałeś liczbę:", odp)
+    # losowanie liczb
+    for i in range(ileliczb):
+        liczba = random.randint(1, maksliczba + 1)
+        print(liczba)
 
-        if liczba == int(odp):
-            print("Zgadłeś!")
-            break  # przerywa działania petli
-        else:
-            print("Jeszcze raz!!!")
+        # odp = input("Podaj liczbę od 1 do 10: ")
+        # print(" Podałeś liczbę:", odp)
+
+        # if liczba == int(odp):
+        #     print("Zgadłeś!")
+        #     break  # przerywa działania petli
+        # else:
+        #     print("Jeszcze raz!!!")
 
     return 0
 
