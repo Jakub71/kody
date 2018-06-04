@@ -5,15 +5,18 @@ import random
 
 
 def main(args):
-    ileliczb = input("Podaj ilość typowanych liczb: ")
-    maksliczba = input("Podaj maks. losowana liczbę: ")
+    ileliczb = int(input("Podaj ilość typowanych liczb: "))
+    maksliczba = int(input("Podaj maks. losowaną liczbę: "))
     print("Wytypuj {} z {} liczb".format(ileliczb, maksliczba))
 
-    # komentarz
     # losowanie liczb
+
+    liczby = []  # lista wylosowanych liczb
     for i in range(ileliczb):
-        liczba = random.randint(1, maksliczba + 1)
-        print(liczba)
+        liczba = random.randint(1, maksliczba)
+        if liczby.count(liczba) == 0:
+            liczby.append(liczba)
+    print(liczby)
 
         # odp = input("Podaj liczbę od 1 do 10: ")
         # print(" Podałeś liczbę:", odp)
