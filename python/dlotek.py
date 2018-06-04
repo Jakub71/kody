@@ -5,6 +5,11 @@ import random
 
 
 def main(args):
+    ileliczb = input("Podaj ilość typowanych liczb: ")
+    maksliczba = input("Podaj maks. losowana liczbę: ")
+    print("Wytypuj {} z {} liczb".format(ileliczb, maksliczba))
+    exit()
+
     liczba = random.randint(1, 10)
     # komentarz
     # komentarz
