@@ -34,11 +34,21 @@ def main(args):
      #   cur.executescript(plik.read())
 
     # dodawanie danych do bazy
-    dane = dane_z_pliku('dane_customers.txt')
-    print(dane)
-   # apps.pop(0)  # usuń pierwszy rekord z listy
-    #cur.executemany('INSERT INTO fake_apps VALUES(?, ?, ?, ?, ?)', apps)
+    #dane = dane_z_pliku('dane_customers.txt')
+    #print(dane)
+    #dane.pop(0)  # usuń pierwszy rekord z listy
+    #cur.executemany('INSERT INTO dane_customers VALUES(?, ?, ?)', dane)
 
+    dane = dane_z_pliku('dane_orders.txt')
+    print(dane)
+    dane.pop(0)  # usuń pierwszy rekord z listy
+    cur.executemany('INSERT INTO dane_orders VALUES(?, ?, ?, ?)', dane)
+    
+    dane = dane_z_pliku('dane_subscriptions.txt')
+    print(dane)
+    dane.pop(0)  # usuń pierwszy rekord z listy
+    cur.executemany('INSERT INTO dane_subscriptions VALUES(?, ?, ?, ?)', dane)
+    
     # przykład zapytania (kwerendy)
     con.commit()
     con.close()
