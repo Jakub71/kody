@@ -21,8 +21,8 @@ def main(args):
     
     #b = int(input("Podaj druga liczbe: "))
     #print(b)
-    #c = int(input("Podaj druga liczbe: "))
-    #print(b)
+    #c = int(input("Podaj trzecia liczbe: "))
+    #print(c)
     #if a > b and a > c:
      #   print("największe jest", a)
     #if b > a and b > c:
@@ -49,6 +49,7 @@ def main(args):
     assert(maks(1, 3, 3) == 3)
     assert(maks(3, 3, 1) == 3)
     assert(maks(3, 3, 3) == 3)
+    
     return 0
 if __name__ == '__main__':
     import sys
