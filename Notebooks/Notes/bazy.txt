@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-09-21T08:03:45+02:00
+
+====== bazy ======
+Created piątek 21 września 2018
+
+normalizacja to bezstratny proces organizowania danych w tabelach mający na celu zmniejszenie ilości danych składowanych w bazie oraz wyeliminowanie potencjalnych anomalii.
+
+Pierwsza postać normalna to podstawa baz – mówi o atomowości danych.Każde pole przechowuje jedną informację, dzięki czemu możemy dokonywać efektywnych zapytań.  
+
+Mówimy, że tabela (encja) jest w pierwszej postaci normalnej, kiedy wiersz przechowuje informacje o pojedynczym obiekcie, nie zawiera kolekcji, posiada klucz główny (kolumnę lub grupę kolumn jednoznacznie identyfikujących go w zbiorze) a dane są atomowe.
+
+Druga postać normalna 2NF mówi o tym, że każda tabela powinna przechowywać dane dotyczące tylko konkretnej klasy obiektów.Wszystkie atrybuty informacyjne (nie należące do klucza), muszą zawierać informacje o elementach tej konkretnej klasy (encji, tabeli) a nie żadnej innej.
+
+Trzecia postać normalna głosi, że kolumna informacyjna nie należąca do klucza nie zależy też od innej kolumny informacyjnej, nie należącej do klucza. Czyli każdy niekluczowy argument jest bezpośrednio zależny tylko od klucza głównego a nie od innej kolumny. 
+
