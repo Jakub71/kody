@@ -13,7 +13,9 @@ def main(args):
     b = int(input("Podaj długość boku b: "))
     
     znak = input("Podaj znak:")
-    
+    if i == 0 or i == x - 1:
+        print(znak*y)
+        continue
     for i in range(a):
         for j in range(b):
             print(znak, end='') 

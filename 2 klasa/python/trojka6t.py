@@ -3,25 +3,15 @@
 #
 #  prostokat.py
 #  
-#  Copyright 2018  <>
-
-def main(args):
-    
-    a = int(input("Podaj długość boku a: "))
-    
-    b = int(input("Podaj długość boku b: "))
-    
-    znak = input("Podaj znak:")
-    
-    for i in range(a):
-        for j in range(b):
-            if j > i and j < b:
-                print("", end='')
-            else:
-                print(znak, end='') 
-        print()
+def trojkat(a, c):
+    for i in range (a):
+        print(" "*(a - i), c * (i*2-1))
     
     return 0
+
+
+def main(args):
+    trojkat(10, "$")
     
 if __name__ == '__main__':
     import sys
