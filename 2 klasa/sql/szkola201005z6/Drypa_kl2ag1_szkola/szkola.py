@@ -15,14 +15,14 @@ def dane_z_pliku(nazwa_pliku):
     return dane
 
 
-def kwerenda_1(cur):
-    cur.execute("""
-        SELECT name AS nazwa, genre AS gatunek FROM apps
-     """)
+#def kwerenda_1(cur):
+ #   cur.execute("""
+  #      SELECT name AS nazwa, genre AS gatunek FROM apps
+   #  """)
 
-    wyniki = cur.fetchall()  # pobranie wszystkich rekordów na raz
-    for row in wyniki:  # odczytanie rekordów
-        print(tuple(row))  # drukowanie pól
+    #wyniki = cur.fetchall()  # pobranie wszystkich rekordów na raz
+    #for row in wyniki:  # odczytanie rekordów
+     #   print(tuple(row))  # drukowanie pól
 
 
 def main(args):
@@ -34,20 +34,17 @@ def main(args):
         cur.executescript(plik.read())
 
      #dodawanie danych do bazy
-    dane = dane_z_pliku('szkoła_z6pr052010_oceny.txt')
-    print(dane)
-    dane.pop(0)  # usuń pierwszy rekord z listy
-    cur.executemany('INSERT INTO oceny VALUES(?, ?, ?)', dane)
+    oceny = dane_z_pliku('szkoła_z6pr052010_oceny.txt')
+    oceny.pop(0)  # usuń pierwszy rekord z listy
+    cur.executemany('INSERT INTO oceny VALUES(?, ?, ?, ?)', oceny)
 
-    dane = dane_z_pliku('szkoła_z6pr052010_przedmioty.txt')
-    print(dane)
-    dane.pop(0)  # usuń pierwszy rekord z listy
-    cur.executemany('INSERT INTO przedmioty VALUES(?, ?, ?, ?)', dane)
+    przedmioty = dane_z_pliku('szkoła_z6pr052010_przedmioty.txt')
+    przedmioty.pop(0)  # usuń pierwszy rekord z listy
+    cur.executemany('INSERT INTO przedmioty VALUES(?, ?, ?, ?)', przedmioty)
     
-    dane = dane_z_pliku('szkoła_z6pr052010_uczniowie.txt')
-    print(dane)
-    dane.pop(0)  # usuń pierwszy rekord z listy
-    cur.executemany('INSERT INTO uczniowie VALUES(?, ?, ?, ?)', dane)
+    uczniowie = dane_z_pliku('szkoła_z6pr052010_uczniowie.txt')
+    uczniowie.pop(0)  # usuń pierwszy rekord z listy
+    cur.executemany('INSERT INTO uczniowie VALUES(?, ?, ?, ?, ?, ?)', uczniowie)
     
     # przykład zapytania (kwerendy)
     con.commit()
