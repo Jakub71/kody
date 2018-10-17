@@ -16,14 +16,14 @@ def liczby3():
     ile = 0
     for i in range(1, 100):
         for j in range(0, 100):
-            for i in range(1, 100):
+            for i in range(0, 100):
         if liczba % 11 != 0:
             print(liczba)
         print()
         
 def main(args):
     print(liczby2())
-    
+    print(liczby3())
     return 0
     
 if __name__ == '__main__':

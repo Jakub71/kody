@@ -13,6 +13,7 @@ void tabliczka(int a, int b) {
         for (int j = 1; j <= b; j++) {
             cout << setw(4) << i * j;
         }
+        cout << endl; // znak nowej linii
     }
 }
 
