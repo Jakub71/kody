@@ -17,6 +17,7 @@ int liczby3() {
                 ile++;
             }
         }
+        cout << endl;
     }
 }
     return ile;
