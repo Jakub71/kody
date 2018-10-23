@@ -5,11 +5,15 @@
 #  
 #  
 def nwd(a,b):
+    licznik = 0
     while a != b:
         if a > b:
             a = a - b
+            licznik += 1
         else:
             b = b - a
+            licznik +=1
+    print("Powtórzeń:", licznik)
     return a
     
 def main(args):
