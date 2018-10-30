@@ -37,7 +37,7 @@ int min1(int tab[], int roz) {
 int max1(int tab[], int roz) {
     int max = tab[0]; // inicjacja 1. elementem tablicy
     for(int i = 0; i < roz; i++) {
-        if(tab[i] < max)
+        if(tab[i] > max)
                 max = tab[i];
         }
         return max;
