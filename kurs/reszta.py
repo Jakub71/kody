@@ -4,7 +4,14 @@
 #  reszta.py
 
 def wydajReszte1(r, l):
-    while
+    i = 0
+    while r > 0:
+        if r >= l[i]:
+            ileNm = int(r / l[i])
+            r -= ileNm * l[i]
+            print("{} x {} zł".format(ileNm, l[i]))
+        
+        i += 1
 
 def main(args):
     listaNm = [200, 100, 50, 20, 10, 5, 2, 1]
