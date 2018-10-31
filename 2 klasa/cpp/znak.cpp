@@ -44,14 +44,15 @@ void zamiana_liter(char tab[]){
     int z = 0;
     while(tab[i] != '\0') {
         z = (int)tab[i];
-        if (z >= 65 && z <= 90){
-         z = z + 32;   
-         }
-         cout << (char)z << " ";   
+        if (z >= 65 && z <= 90)
+         z += 32;   
+        else if (z >= 97 && z <= 122)
+            z -= 32;
+         cout << (char)z;  
         i++;
     }
-    
 }
+
 int main(int argc, char **argv)
 {
     const int rozmiar = 30; // deklaracja stałej
