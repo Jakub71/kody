@@ -2,30 +2,41 @@
  * anagram.cpp
  */
 #include <iostream>
-using namespace std;
-
-
-int zlicz(char tab[]){
+ using namespace std;
+ // anagram() funkcja odwraca znaki w danym wyrazie
+ //wyrazy funkcja odwraca znaki w wyrazach
+ int zlicz(char tb[]) {
     int i = 0;
-    while(tab[i] != '\0') i++;
-    return i;
+	while(tb[i] != '\0') i++;
+     return i;
+ }
+ 
+ void wyswietl(char tekst[], int rozmiar) {
+     for(int i = 0; i < rozmiar; i++) {
+         cout << tekst[i];
+    }
 }
-void wyswietl(char tekst[], int roz) {
-    for(int i = 0; i < roz; i++){
+ void anagram(char tekst[], rozmiar) {
+    //for zaczyna od ostatmniego znaku
+    for (int i; i <= coś; i--) {
+        
+        }
+void anagram(char tekst[], int rozmiar) {
+// for zaczyna od ostatmniego znaku
+    for (int i = rozmiar; i >= 0; i--) {
         cout << tekst[i];
-    }    
+    }
 }
-
-void anagram(char tb[], int roz){
-    for
-    
-    
-}
-int main(int argc, char **argv)
+ int main(int argc, char **argv)
 {
-    char tekst[50];  
-    cin.getline(tekst, 50);
-    wyswietl(tekst, zlicz(tekst));  
+    const int rozmiar = 50; // deklaracja stałej
+    const int rozmiar = 30; // deklaracja stałej
+    char tekst[rozmiar];
+    cout << "Podaj słowa: ";
+    cin.getline(tekst, rozmiar);
+    wyswietl(tekst, zlicz(tekst));
+    cout << "\nSłowa zapisane od tyłu: ";
+    anagram(tekst, zlicz(tekst));
+    
 	return 0;
 }
-
