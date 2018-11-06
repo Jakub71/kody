@@ -27,7 +27,7 @@ def wylicz(imie1='Adam', imie2='Ewa', **kwargs): # słownik zmiennej długości
 def main(args):
     #mnoz(4, 6)
     #mnoz2(1, 2, 3, 4, 5)
-    wylicz(imie2='Ola', imie3='Piotr', imie4='Alfons')
+    wylicz(imie2='Ola', imie3='Piotr', imie4='dźefko')
     return 0
     
 if __name__ == '__main__':
