@@ -32,3 +32,4 @@ int main(int argc, char **argv)
 	return 0;
 }
 
+// spradx czy liczba jest palindromem
