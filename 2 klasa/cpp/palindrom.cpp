@@ -13,17 +13,20 @@ int zlicz(char tb[]) {
      return i;
  }
  
-bool palindrom(char wyraz[], int rozmiar){
-    rozmiar = cin.gcount();
-    int polowa = rozmiar / 2
+bool palindrom(char w[], int rozmiar){
     bool czyPal = true;
-    for(int i = 0; i < polowa ; i++) {
-      if (i == rozmiar - 1) continue;   
+    int polowa = rozmiar / 2;
+    int j = 0;
+    for(int i = rozmiar - 1; i > polowa ; i = i - 1) {
+      if (w[i] == w[j]){
+          j++;
+          }   
       else{
         czyPal = false;
         break;  
         }   
     }  
+    return czyPal;
 }
 
 int main(int argc, char **argv)
@@ -31,7 +34,12 @@ int main(int argc, char **argv)
     char tekst[roz];
     cout << ("Wprowadź wyraz: ");
     cin.getline(tekst, roz);
-	palindrom(tekst, cin.gcount());
+	if (palindrom(tekst, zlicz(tekst)) == 1){
+            cout << "jest";
+    }
+    else{
+        cout << "nie jest";
+        }
 	return 0;
 }
 
