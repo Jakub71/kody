@@ -1,27 +1,16 @@
 /*
  * palindrom.cpp
  */
-
-
 #include <iostream>
-
+#include <string.h>
 using namespace std;
 
-int zlicz(char tb[]) {
-    int i = 0;
-     while(tb[i] != '\0') i++;
-     return i;
- }
- 
-bool palindrom(char w[], int rozmiar){
+bool palindrom(char wyraz[], int roz){
     bool czyPal = true;
-    int polowa = rozmiar / 2;
-    int j = 0;
-    for(int i = rozmiar - 1; i > polowa ; i = i - 1) {
-      if (w[i] == w[j]){
-          j++;
-          }   
-      else{
+    for(int i = 0; i < roz / 2; i++) {
+        if (wyraz[i] == wyraz[roz-1-i]) 
+        ; // instrukcja pusta
+        else {
         czyPal = false;
         break;  
         }   
@@ -30,15 +19,15 @@ bool palindrom(char w[], int rozmiar){
 }
 
 int main(int argc, char **argv)
-{   const int roz = 50;
+{   const int roz = 20;
     char tekst[roz];
     cout << ("Wprowadź wyraz: ");
     cin.getline(tekst, roz);
-	if (palindrom(tekst, zlicz(tekst)) == 1){
-            cout << "jest";
+	if (palindrom(tekst, strlen(tekst))){
+            cout << "Wyraz jest palindromem";
     }
     else{
-        cout << "nie jest";
+        cout << "Wyraz nie jest palindromem";
         }
 	return 0;
 }
