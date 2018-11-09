@@ -5,13 +5,19 @@ import sqlite3
 import csv
 import os.path
 
+def czy_jest(plik):
+    '''Funkcja sprawdza czy plik istnieje na dysku '''
+    if not os.path.isfile(plik):
+        print("Plik {} nie istnieje!".format(plik))
+        return False
+    return True
+            
+
 def dane_z_pliku(nazwa_pliku, separator=','):
     dane = []  # pusta lista na dane
-    
-    if not os.path.isfile(nazwa_pliku):
-        print("Plik {} mie istnieje!".format(nazwa_pliku))
-        return dane
-    
+    if not czy_jest(nazwa_pliku):
+        return dane 
+
     with open(nazwa_pliku, 'r', newline='', encoding='utf-8') as plik:
         tresc = csv.reader(plik, delimiter=separator)
         for rekord in tresc:
@@ -22,7 +28,7 @@ def dane_z_pliku(nazwa_pliku, separator=','):
 
 def kwerenda_1(cur):
     cur.execute("""
-        SELECT * FROM pracownicy_sql_spr
+        SELECT * FROM pracownicy
     """)
 
     """
@@ -30,46 +36,53 @@ def kwerenda_1(cur):
     SELECT name, downloads FROM fakeapps WHERE downloads > (SELECT AVG(downloads) FROM fakeapps) ORDER BY downloads DESC LIMIT 5;
     SELECT COUNT(name) FROM fakeapps WHERE downloads > (SELECT AVG(downloads) FROM fakeapps);
     SELECT category, SUM(downloads) AS suma_pobran FROM fakeapps GROUP BY category ORDER BY suma_pobran DESC;
-
-
     """
     wyniki = cur.fetchall()  # pobranie wszystkich rekordów na raz
     for row in wyniki:  # odczytywanie kolejnych rekordów
         print(tuple(row))  # drukowanie pól
 
 def ile_kolumn(cur, tab):
-    i = 0
+    """Funkcja sprawdza i zwraca liczbe kolumn w podanej tabeli"""
+    licznik = 0
     for kol in cur.execute("PRAGMA table_info('" + tab + "')"):
-        i += 1
-    return i
+        licznik += 1 
+    return licznik
 
 
 def main(args):
-    baza_nazwa ='pracownicy'
-    tabele= ['pracownicy', 'place', 'kontakty', 'stanowiska']
-    
+    # KONFIGURACJA #######
+    baza_nazwa = 'pracownicy'
+    tabele = ['pracownicy', 'kontakty', 'stanowiska', 'place']
+    roz = '.csv'
+    #####################
+
     con = sqlite3.connect(baza_nazwa + '.db')  # połączenie z bazą
     cur = con.cursor()  # utworzenie kursora
 
     # utworzenie tabeli w bazie
+    if not czy_jest(baza_nazwa + '.sql'):
+        return 0
+
     with open(baza_nazwa + '.sql', 'r') as plik:
         cur.executescript(plik.read())
 
+    # dodawanie danych
     for tab in tabele:
         ile = ile_kolumn(cur, tab)
-        dane = dane_z_pliku(tab + '.csv')
-        ile_d =len(dane[0])
-        if ile > ile_d:
-            dane2 = []
+        dane = dane_z_pliku(tab + roz, separator=',')
+        ile_d = len(dane[0])
+        
+        if ile > ile_d: #trzeba dodac NONE 
+            dane2 = [] # tymczasowa lista
             for r in dane:
-                r.insert(0, None) # dodanie none na początku listy
+                r.insert(0, None)
                 dane2.append(r)
             dane = dane2
-            ile_d += 1
-        pholders = ','.join(['?'] * ile_d)
-        
-        cur.executemany('INSERT INTO ' + tab + ' VALUES(' + pholders + ')',dane)
-
+            
+        ile = len(dane[0])
+                
+        cur.executemany('INSERT INTO ' + tab + 
+            ' VALUES(' + ','.join(['?'] * ile) + ')', dane)
 
     con.commit()  # zatwierdzenie zmian w bazie
     con.close()  # zamknięcie połączenia z bazą
@@ -78,4 +91,4 @@ def main(args):
 
 if __name__ == '__main__':
     import sys
-    sys.exit(main(sys.argv))
+sys.exit(main(sys.argv))
