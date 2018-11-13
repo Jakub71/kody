@@ -1,35 +1,44 @@
 /*
- * palindrom.cpp
+ *palindrom.cpp
  */
 #include <iostream>
 #include <string.h>
 using namespace std;
-
-bool palindrom(char wyraz[], int roz){
+bool palindrom(char tekst[], int rozmiar)
+{
+    int polowa = rozmiar / 2;
     bool czyPal = true;
-    for(int i = 0; i < roz / 2; i++) {
-        if (wyraz[i] == wyraz[roz-1-i]) 
-        ; // instrukcja pusta
-        else {
-        czyPal = false;
-        break;  
-        }   
-    }  
+    
+    for(int i = 0; i < polowa; i++)
+    {
+        if (tekst[i] == tekst[rozmiar - 1 - i])
+            ; // instrukcja pusta
+        else
+        {
+            czyPal = false;
+            break;
+        }
+    }
+    
     return czyPal;
 }
-
 int main(int argc, char **argv)
-{   const int roz = 20;
-    char tekst[roz];
-    cout << ("Wprowadź wyraz: ");
-    cin.getline(tekst, roz);
-	if (palindrom(tekst, strlen(tekst))){
-            cout << "Wyraz jest palindromem";
+{
+    const int rozmiar = 50;
+    char tekst[rozmiar];
+    cout << "Podaj wyraz: ";
+    cin.getline(tekst, rozmiar);
+	
+    // cin.gcount wlicza w długość sekwencję /0 więc dolicza dodatkowy znak
+    //if (palindrom(tekst, cin.gcount()-1))  lub przez dołączenie biblioteki string:
+    if (palindrom(tekst, strlen(tekst)))
+        cout << "Palindrom! :)";
+    
+    else
+    {
+        cout << "To nie palindrom :(";
     }
-    else{
-        cout << "Wyraz nie jest palindromem";
-        }
+    
+    
 	return 0;
 }
-
-// spradx czy liczba jest palindromem
