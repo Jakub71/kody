@@ -34,13 +34,15 @@ class Osoba():
             print("i'm still alive!")
         
 jakub = Osoba('Kuba', 'Gwizd', 10)
-jakub.plec = "m"
+print(jakub.__dict__)
+
+exit()
+
 print(jakub.nazwisko, jakub.plec, jakub.hp)
 michal = Osoba('Michaś', 'Świst', 10)
 print(michal.nazwisko, michal.plec, michal.hp)
 
 print("Fight: ")
-
 jakub.atakuj(michal)
 jakub.atakuj(michal)
 jakub.atakuj(michal)
@@ -51,8 +53,6 @@ jakub.atakuj(michal)
 jakub.atakuj(michal)
 jakub.atakuj(michal)
 jakub.atakuj(michal)
-
-
 
 michal.atakuj(jakub)
 michal.atakuj(jakub)
