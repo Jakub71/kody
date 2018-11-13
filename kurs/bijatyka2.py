@@ -34,12 +34,12 @@ class Osoba():
             print("i'm still alive!")
         
 jakub = Osoba('Kuba', 'Gwizd', 10)
-print(jakub.__dict__)
-
+michal = Osoba('Michaś', 'Świst', 10)
+jakub.wzrost = 170
+print(michal.__dict__)
 exit()
 
 print(jakub.nazwisko, jakub.plec, jakub.hp)
-michal = Osoba('Michaś', 'Świst', 10)
 print(michal.nazwisko, michal.plec, michal.hp)
 
 print("Fight: ")
