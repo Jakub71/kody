@@ -1,33 +1,44 @@
-DROP TABLE IF EXISTS tabela pracownicy:
-CREATE TABLE pracownicy(
-    id_p INTEGER PRIMARY KEY AUTOINCREMENT,
+DROP TABLE IF EXISTS uczniowie;
+CREATE TABLE uczniowie
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     imie TEXT,
     nazwisko TEXT,
-    kod TEXT,
-    miasto_z TEXT,
-    ulica TEXT,
-    data_u DATE,
-    miasta_u TEXT,
+    plec BOOLEAN,
+    id_klasa INTEGER NOT NULL,
+    egz_hum NUMERIC NOT NULL DEFAULT 0,
+    egz_mat NUMERIC NOT NULL DEFAULT 0,
+    egz_jez NUMERIC NOT NULL DEFAULT 0,
+    FOREIGN KEY (id_klasa) REFERENCES klasy(id) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
-DROP TABLE IF EXISTS tabela place:
-CREATE TABLE place(
-    id_p INTEGER PRIMARY KEY AUTOINCREMENT,
-    id_s INTEGER,
-    placa INTEGER,
-    data_z DATE,
-    FOREIGN KEY(id_p) REFERENCES pracownicy(id_p) ON DELETE CASCADE ON UPDATE NO ACTION
+
+DROP TABLE IF EXISTS klasy;
+CREATE TABLE klasy
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    klasa TEXT (2),
+    rok_naboru INTEGER,
+    rok_matury INTEGER
 );
-DROP TABLE IF EXISTS tabela kontakty:
-CREATE TABLE kontakty(
-    id_pracownika INTEGER PRIMARY KEY AUTOINCREMENT,
-    typ_k BOOLEAN,
-    kontakt TEXT,
-    uwagi TEXT,
-    FOREIGN KEY(id_pracownika) REFERENCES pracownicy(id_pracownika) ON DELETE CASCADE ON UPDATE NO ACTION
+
+DROP TABLE IF EXISTS przedmioty;
+CREATE TABLE przedmioty
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    przedmiot TEXT,
+    imie_naucz TEXT,
+    nazwisko_naucz TEXT,
+    plec_naucz BOOLEAN
 );
-DROP TABLE IF EXISTS tabela stanowiska:
-CREATE TABLE stanowiska (
-    id_s INTEGER PRIMARY KEY AUTOINCREMENT
-    stanowisko TEXT,
-    FOREIGN KEY(id_s) REFERENCES place(id_s) ON DELETE CASCADE ON UPDATE NO ACTION
+
+DROP TABLE IF EXISTS oceny;
+CREATE TABLE oceny
+(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    datad DATETIME,
+    id_uczen INTEGER NOT NULL,
+    id_przedmiot INTEGER NOT NULL,
+    ocena DECIMAL NOT NULL,
+    FOREIGN KEY (id_przedmiot) REFERENCES przedmioty(id) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY (id_uczen) REFERENCES uczniowie(id) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
