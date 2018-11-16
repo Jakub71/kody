@@ -16,12 +16,13 @@ class BazaModel(Model):
         database = baza
         
 class Klasa(BazaModel):
+    
     nazwa = CharField(null=False)
     roknaboru = IntegerField(default=0)
     rokmatury = IntegerField(default=0)
 
-class Uczniowie(BazaModel):
-    id = CharField(null=False)
+class Uczen(BazaModel):
+    
     imie = CharField(null=False)
     nazwisko = CharField(null=False)
     plec = BooleanField()
@@ -31,23 +32,24 @@ class Uczniowie(BazaModel):
     egzjez = FloatField(default = 0)
     
 class Przedmiot(BazaModel):
-    id = CharField(null=False)
+   
     przedmiot = CharField(null=False)
     imienaucz = CharField(null=False)
     nazwiskonaucz = CharField(null=False)
     plecnaucz = BooleanField()
     
 class Oceny(BazaModel):
-    datad 
-    id_uczen = ForeignKeyField(Klasa, related_name='uczniowie')
-    id_przedmiot = ForeignKeyField(Klasa, related_name='uczniowie')
-    ocena = 
+    
+    datad = DateField()
+    iduczen = ForeignKeyField(Uczen, related_name='oceny')
+    idprzedmiot = ForeignKeyField(Przedmiot, related_name='oceny')
+    ocena = DecimalField(null=False)
     
 def main(args):
-    if os.path_exists(baza_plik):
+    if os.path.exists(baza_plik):
         os.remove(baza_plik)
     baza.connect() # połączenie z bazą
-    baza.create_tables([Klasa, Uczen, Wynik])
+    baza.create_tables([Klasa, Uczen, Przedmiot, Oceny])
     return 0
 
 if __name__ == '__main__':
