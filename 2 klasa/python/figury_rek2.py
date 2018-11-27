@@ -8,7 +8,7 @@ def rysuj(bok, kat, przyrost, warunek):
     turtle.forward(bok)
     turtle.right(kat)
     if kat < warunek:
-        bok += 10 # albo kat += ileś
+        bok += 1 # albo kat += ileś
         rysuj(bok, kat, przyrost, warunek)
 
 
