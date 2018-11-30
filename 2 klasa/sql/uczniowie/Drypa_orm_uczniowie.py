@@ -13,9 +13,7 @@ def dodaj_dane(dane):
         pola.pop(0) # usuwanie pierwszego rekordu z listy
         
         wpisy = dane_z_pliku(plik + '.csv')
-        print(wpisy)
-        #model.insert_many(wpisy, fields=)
-
+        model.insert_many(wpisy, fields=pola).execute()
 
 def main(args):
     if os.path.exists(baza_plik):
