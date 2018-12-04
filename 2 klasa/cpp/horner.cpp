@@ -28,6 +28,14 @@ float horner_it(int st, float tbwsp[], float x){
     return wynik;
 }
 
+float horner_re(int st, float tbwsp[], float x){
+    if (st==0) return tbwsp[0];
+    
+    
+    return x * horner_re(st -1, tbwsp, x) + tbwsp[st];
+}
+
+
 int main(int argc, char **argv)
 {
     
@@ -45,10 +53,16 @@ int main(int argc, char **argv)
     cout << "Podaj argument: ";
     cin >> x;
     
-    cout << "Wartość wielomianu o postaci: ";
+    cout << "Wartość iteracyjnie: ";
     drukujw(stopien, tbwsp);
     cout << "\ndla x = " << x << " wynosi: " << horner_it(stopien, tbwsp, x);
     cout << endl;
+    
+    cout << "Wartość rekurencyjnie: ";
+    drukujw(stopien, tbwsp);
+    cout << "\ndla x = " << x << " wynosi: " << horner_re(stopien, tbwsp, x);
+    cout << endl;
+    
 	return 0;
 }
 
