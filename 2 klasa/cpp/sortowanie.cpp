@@ -37,8 +37,8 @@ void sort_bubble(int tab[], int n){
     for (int j = n - 1; j > 0; j--) {
         for(int i = 0; i < j; i++) {
             licznik++;
-            if (tab[i]>tab[i+1])
-                zamien(tab[i], tab[i+1]);
+            if (tab[i]>tab[i-1])
+                zamien(tab[i], tab[i-1]);
         }
     }
     cout << "\nPowtórzeń: " << licznik << endl;
