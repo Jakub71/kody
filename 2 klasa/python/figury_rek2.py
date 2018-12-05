@@ -20,7 +20,7 @@ def main(args):
     turtle.setup(800, 600)
     turtle.color('red', 'black')
     turtle.begin_fill()
-    turtle.speed(10)
+    turtle.speed(30)
     
     rysuj(bok, kat, przyrost, warunek)
     
