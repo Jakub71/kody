@@ -30,8 +30,6 @@ float horner_it(int st, float tbwsp[], float x){
 
 float horner_re(int st, float tbwsp[], float x){
     if (st==0) return tbwsp[0];
-    
-    
     return x * horner_re(st -1, tbwsp, x) + tbwsp[st];
 }
 
