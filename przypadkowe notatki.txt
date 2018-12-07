@@ -41,3 +41,30 @@ con.commit()  # zatwierdzenie zmian w bazie
 SELECT name, downloads FROM fake_apps WHERE downloads > (SELECT AVG(downloads) FROM fake_apps) ORDER BY downloads DESC LIMIT 5;- WEZ NAZWE I POBIERANIE Z TABELI WIEKSZE OD SRDENIEJ W KOLEJNOŚCI MALEJĄCEJ
 SELECT COUNT(name) FROM fake_apps WHERE downloads > (SELECT AVG(downloads) FROM fake_apps);- WIEKSZE WYSTARCZY ZMIENIC ZNAK
 SELECT COUNT(NAME) FROM fake_apps; 
+
+
+
+zainstaluj
+
+ biblioteke flask, interpreter python i pve3
+
+
+source ~/pve3/bin/activate
+
+pip list
+
+pip install flask
+
+MASZ TO WIEDZIEĆ!!!!!
+adres ip
+port
+gniazdo
+protokół
+klient
+serwer
+metoda GET
+adres URL
+
+/ - główny katalog serwera, główny zasób
+
+widok - view
