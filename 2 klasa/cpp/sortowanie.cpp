@@ -37,11 +37,25 @@ void sort_bubble(int tab[], int n){
     for (int j = n - 1; j > 0; j--) {
         for(int i = 0; i < j; i++) {
             licznik++;
-            if (tab[i]>tab[i-1])
-                zamien(tab[i], tab[i-1]);
+            if (tab[i]>tab[i+1])
+                zamien2(tab, i);
         }
     }
     cout << "\nPowtórzeń: " << licznik << endl;
+}
+
+void sort_insert(int tab, int n) {
+    cout << "\nSortowanie przez wstawianie\n";
+    int i, j, tmp;
+    for ( i = 1; i < n; i++) {
+        tmp = tab[i];
+        j = i - 1;
+        while (j >= 0 && tab[j] > tmp) {
+            tab[j+1] = tab[j];
+            j--
+        }
+        tab[j+1] = tmp;
+    }
 }
 
 int main(int argc, char **argv)
@@ -55,7 +69,7 @@ int main(int argc, char **argv)
     //zamien(a, b);
     //cout << a << " "<< b;
     cout << endl;
-    sort_bubble(tab, n);
+    sort_insert (tab, n);
     cout << endl;
     zamien2(tab, n);
     drukuj(tab, n);
