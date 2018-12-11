@@ -44,7 +44,7 @@ void sort_bubble(int tab[], int n){
     cout << "\nPowtórzeń: " << licznik << endl;
 }
 
-void sort_insert(int tab, int n) {
+void sort_insert(int tab[], int n) {
     cout << "\nSortowanie przez wstawianie\n";
     int i, j, tmp;
     for ( i = 1; i < n; i++) {
@@ -52,7 +52,7 @@ void sort_insert(int tab, int n) {
         j = i - 1;
         while (j >= 0 && tab[j] > tmp) {
             tab[j+1] = tab[j];
-            j--
+            j--;
         }
         tab[j+1] = tmp;
     }
