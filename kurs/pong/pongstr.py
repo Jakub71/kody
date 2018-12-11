@@ -24,8 +24,6 @@ pal1_prost = pal1.get_rect()
 pal1_prost.x = 350
 pal1_prost.y = 360
 
-PAL_SZER, PAL_WYS, MAKS_V = 100, 20, 10
-
 # paletka gracza 2
 # utworzenie powierzchni paletki, wypełnienie jej kolorem,
 pal2 = pygame.Surface([PAL_SZER, PAL_WYS])
@@ -45,8 +43,6 @@ while True:
     
     # kolor okna gry, składowe RGB podane w tupli
     plansza.fill((200, 255, 255))
-    plansza.blit(pal1, pal1_prost)
-    plansza.blit(pal2, pal2_prost)
     plansza.blit(pal1, pal1_prost)
     plansza.blit(pal2, pal2_prost)
     # rysowanie okna
