@@ -4,6 +4,7 @@
 #  orm_peewee.py 
 import os
 from modele import *
+import csv
 
 def dane_z_pliku(nazwa_pliku, separator=','):
     dane = []  # pusta lista na dane
@@ -25,7 +26,7 @@ def dodaj_dane(dane):
         pola = [pole for pole in model._meta.fields]
         pola.pop(0) # usuwanie pierwszego rekordu z listy
         
-        wpisy = dane_z_pliku(plik + '.csv')
+        wpisy = dane_z_pliku(plik + '.csv', ';')
         model.insert_many(wpisy, fields=pola).execute()
 
 def main(args):

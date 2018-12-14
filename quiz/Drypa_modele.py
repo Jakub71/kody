@@ -4,7 +4,7 @@
 #  modele.py
 from peewee import *
 
-baza_plik = 'quiz.db'
+baza_plik = 'test.db'
 baza =SqliteDatabase(baza_plik) #instancja bazy
 
 
@@ -14,14 +14,17 @@ class BazaModel(Model):
         database = baza
         
 class Kategoria(BazaModel):
+    
     kategoria = CharField(null=False)
 
 class Pytanie(BazaModel):
+    
     pytanie = CharField(null=False)
-    kategoria = ForeignKeyField(Kategoria, related_name='pytania')
+    kategoria = ForeignKeyField(Kategoria, related_name='kategorie')
     
 class Odpowiedz(BazaModel):
+   
+    pytanie = ForeignKeyField(Pytanie, related_name='pytania')
     odpowiedz = CharField(null=False)
-    pytanie = ForeignKeyField(Pytanie, related_name='odpowiedzi')
-    odpok = IntegerField(default=0)
+    odpok = IntegerField()
     
