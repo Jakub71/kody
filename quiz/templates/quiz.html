@@ -10,8 +10,13 @@
 </head>
 
 <body>
-<h1> Witam na ładnej stronie</h1>
-<h2> Jak nie działa to pisz do admina</h2>
+    <h1> Quiz</h1>
+    <h2> Pytania</h2>
+    {% for p in query %}
+    <p>
+        {{ p.id }} {{ p.pytanie }}
+    </p>
+    {% endfor %}
 </body>
 
 </html>
