@@ -4,19 +4,15 @@
 #  pierwsza_Drypa_kl2ag1.py
 
 def main(args):
-    n = int(input("Proszę podać liczbę: "))
+    n = int(input("Podaj liczbę: "))
     i = 2
-    
-    for a in range(n + 1):
-        if not i * i <= n:
-            print("Liczba pierwsza")
-            return
-            
-        if not (n % i == 0):
-               i += 1
-        else: 
-            print("Liczba złożona")  
-            return
+    while i * i <= n:
+        if n % i == 0:
+            print("Złożona")
+            return 0
+        i += 1
+    print("Pierwsza")
+    return 0
 
 if __name__ == '__main__':
     import sys
