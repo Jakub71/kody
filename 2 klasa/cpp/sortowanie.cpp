@@ -58,6 +58,22 @@ void sort_insert(int tab[], int n) {
     }
 }
 
+void sort_ros(int tab[], int n)
+{
+    cout << "\nSortowanie rosnąco\n";
+    int k;
+    for(int i = 0; i < n; i++)
+    {
+        k = i;
+        for(int j = i + 1; j < n; j++)
+        {
+           if(tab[i] < tab[k])
+           {
+                zamien2(tab, j);   
+           } 
+        }
+    }
+}
 int main(int argc, char **argv)
 {
 	int n = 20;
@@ -73,7 +89,7 @@ int main(int argc, char **argv)
     cout << endl;
     zamien2(tab, n);
     drukuj(tab, n);
-    
+    sort_ros(tab, n);
 	return 0;
 }
 
