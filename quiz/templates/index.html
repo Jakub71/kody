@@ -10,6 +10,7 @@
 <meta name="generator" content="Geany 1.32" />
 <style type="text/css">
     #menu li { display: inline; }
+    .info {color: blue;}
 </style>
 </head>
 
@@ -21,6 +22,16 @@
         <li><a href="#">Dodaj pytanie</a></li>
     </ul>
     <h1>Pytania dla odważnych</h1>
+    
+    <div id="komunikaty">
+        {% with komunikaty = get_flashed_messages(with_categories=true) %}
+        {% if komunikaty %}
+            {% for kategoria, komunikat in komunikaty %}
+            <p class="{{ kategoria }}">{{ komunikat }}</p>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
 </body>
 
 </html>
