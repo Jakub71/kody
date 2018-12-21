@@ -20,8 +20,8 @@ def after_request(response):
     return response
     
 @app.route("/")
-def hello():
-    return "<h1>Witaj świecie!</h1><h2>Aplikacja Quiz</h2>"
+def index():
+    return render_template('index.html')
     
 @app.route("/lista")
 def lista():
