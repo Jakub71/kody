@@ -68,3 +68,8 @@ adres URL
 / - główny katalog serwera, główny zasób
 
 widok - view
+
+
+
+
+algorytm liniowy to taki który nie zawiera instrukcji warunkowych
