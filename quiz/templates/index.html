@@ -3,7 +3,7 @@
 {% block h1 %}Pytania dla odważnych{% endblock %}
 
 {% block tresc %}
-    <div id="komunikaty">
+    <div id="komunikaty" class="lead">
         {% with komunikaty = get_flashed_messages(with_categories=true) %}
         {% if komunikaty %}
             {% for kategoria, komunikat in komunikaty %}
