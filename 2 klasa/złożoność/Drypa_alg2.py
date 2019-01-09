@@ -1,19 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-#  Drypa_alg2.py
-#  
-def podaj():
-    a = int(input("Podaj a:"))
-    if a > 0 and a < 100:
-        return a
-    else:
-        podaj()
 
 def main(args):
-    podaj()
-
+    a = 0
+    while a <= 0 or a >= 100:
+        a = int(input("Podaj liczbę: "))
+        
+    i = 2
     
+    while i > 0:
+        if a == i:
+            print("Liczba jest parzysta")
+            break
+        else:
+            i = i + 2
+            if i > a:
+                print("Liczba nie jest parzysta")
+                break
     return 0
 
 if __name__ == '__main__':
