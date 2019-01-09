@@ -9,7 +9,8 @@ using namespace std;
 int main(int argc, char **argv)
 {
     int a = 0;
-    while (a <= 0 || a >= 100){
+    while (a <= 0 || a >= 100)
+    {
         cout << "Podaj liczbę: ";
         cin >> a;
     }

@@ -3,21 +3,16 @@
 
 def main(args):
     a = 0
-    while a <= 0 or a >= 100:
-        a = int(input("Podaj liczbę: "))
-        
-    i = 2
-    
-    while i > 0:
+    while a < 1 or a > 99:
+        a = int(input('Podaj liczbę: '))
+    print('podana liczba: {}'.format(a))
+    for i in range(2, 102, 2):
         if a == i:
-            print("Liczba jest parzysta")
-            break
-        else:
-            i = i + 2
-            if i > a:
-                print("Liczba nie jest parzysta")
-                break
-    return 0
+            print('{} jest liczbą parzystą'.format(a))
+            break;
+        if i == 100:
+            print('{} nie jest liczbą parzystą'.format(a))
+        return 0
 
 if __name__ == '__main__':
     import sys
