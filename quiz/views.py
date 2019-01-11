@@ -36,6 +36,7 @@ def quiz():
     pytania = Pytanie.select().join(Odpowiedz).distinct().order_by(Pytanie.id)
     return render_template('quiz.html', query = pytania)
     
-@app.route("/quiz", methods=['GET','POST'])
+@app.route("/dodaj", methods=['GET','POST'])
 def dodaj():
-    pass
+    form = OdpForm()
+    return render_template('dodaj.html', form=form)
