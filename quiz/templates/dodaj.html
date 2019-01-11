@@ -4,12 +4,14 @@
 
 {% block tresc %}
     <form method="POST">
-    {{ form.csrf_token }}
     
-    {{ form.id }}
-    {{ form.pytanie }}
-    {{ form.odpowiedz }}
-    {{ form.odpok }}
+    {{ form.pytanie.label }}<br>
+    {{ form.pytanie }}<br>
+    <br>
+    {{ form.kategoria.label }}<br>
+    {{ form.kategoria(class="form-control") }}<br>
+    <br>
+    {% for o in form.odpowiedzi %}
     
     <input type="submit" value="Zapisz pytanie">
     </form>

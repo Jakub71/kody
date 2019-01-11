@@ -38,5 +38,5 @@ def quiz():
     
 @app.route("/dodaj", methods=['GET','POST'])
 def dodaj():
-    form = OdpForm()
+    form = PytanieForm()
     return render_template('dodaj.html', form=form)
