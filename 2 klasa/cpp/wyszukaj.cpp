@@ -3,23 +3,22 @@
  */
 
 #include <iostream>
-#include <cstdlib>
 using namespace std;
 
-void wypelnij_los(int tab[], int rozmiar)
+void wypelnij_los(int tab[], int roz)
 {
-    srand(time(NULL));  // inicjacja generatoraliczb pseudolosowych
-    for(int i = 0; i < rozmiar; i++)
+    srand(time(NULL));  
+    for(int i = 0; i < roz; i++)
     {
         tab[i] = rand() % 101;
     }
 }
 
-void drukuj(int tab[], int rozmiar)
+void drukuj(int tab[], int roz)
 {
-    for(int i = 0; i < rozmiar; i++)
+    for(int i = 0; i < roz; i++)
     {
-        cout << tab[i] << ' ';
+        cout << tab[i] << " ";
     }
 }
 
@@ -43,6 +42,20 @@ void sort_insert(int tab[], int n)
     cout << "Liczba porównań: " << licznik << endl;
 }
 
+int szukaj_bin_it(int tab[], int n, int szuk){
+    int p, k, s;
+    p = 0; 
+    k = n - 1;
+    while (p <= k){
+        s = (p + k) / 2;
+        if (tab[s] == szuk) 
+        return s;
+        else if (szuk < tab[s]) k = s - 1;
+        else p = s + 1;
+    }
+    return -1;
+}
+
 int main(int argc, char **argv)
 {
 	int n = 20;
@@ -51,7 +64,16 @@ int main(int argc, char **argv)
     int szuk = 0;
     cout << "Podaj liczbę: ";
     cin >> szuk;
+    sort_insert(tab, n);
+    drukuj(tab, n);
     
+    int indeks = szukaj_bin_it(tab, n, szuk);
+    
+    if (indeks >= 0)
+        cout << "\nZnaleziono" << indeks << endl;
+    else
+        cout << "\nNie znaleziono " << indeks << endl;
+        
 	return 0;
 }
 
