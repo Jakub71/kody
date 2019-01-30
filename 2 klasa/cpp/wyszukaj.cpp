@@ -42,6 +42,18 @@ void sort_insert(int tab[], int n)
     cout << "Liczba porównań: " << licznik << endl;
 }
 
+int szukaj_bin_rek(int p, int k, int tab[], int szuk){
+    if (p <= k) {
+        int s = (p + k) / 2;
+        if (tab[s] == szuk) return s;
+        if (szuk < tab[s]) 
+            return szukaj_bin_rek(p, s-1, tab, szuk);
+        else 
+            return szukaj_bin_rek(s + 1, k, tab, szuk);
+    }
+    return -1;
+}
+
 int szukaj_bin_it(int tab[], int n, int szuk){
     int p, k, s;
     p = 0; 
@@ -61,19 +73,20 @@ int main(int argc, char **argv)
 	int n = 20;
     int tab[n];
     wypelnij_los(tab, n);
+    drukuj(tab, n);
     int szuk = 0;
     cout << "Podaj liczbę: ";
     cin >> szuk;
     sort_insert(tab, n);
     drukuj(tab, n);
     
-    int indeks = szukaj_bin_it(tab, n, szuk);
+    //int indeks = szukaj_bin_it(tab, n, szuk);
+    int indeks = szukaj_bin_rek(0, n-1, tab, szuk);
     
     if (indeks >= 0)
-        cout << "\nZnaleziono" << indeks << endl;
+        cout << "\nZnaleziono na indeksie " << indeks << endl;
     else
-        cout << "\nNie znaleziono " << indeks << endl;
+        cout << "\nNie znaleziono "<< endl;
         
 	return 0;
 }
-
