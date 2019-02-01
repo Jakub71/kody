@@ -81,3 +81,11 @@ def page_not_found(e):
 @app.route("/edytuj/<int:pid>", methods=['GET', 'POST'])
 def edytuj(pid):
     p = get_or_404(pid)
+    form = PytanieForm()
+    form.kategoria.choices = [(k.id, k.kategoria) for k in Kategoria.select()]
+    
+    if form.validate_on_submit():
+        print(form.data)  
+        
+          
+    return render_template("edytuj.html", form=form)

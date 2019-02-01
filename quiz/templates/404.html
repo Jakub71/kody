@@ -3,10 +3,10 @@
 {% block h1 %}Quiz – błąd{% endblock %}
 
 {% block tresc %}
-<div class="">
-Wpisałeś fałszywe pytanie ty oszukisto
-<p>
-<a href="{{url_for('index')}}">Strona Główna</a>
-</p>
+<div class="alert alert-warning">
+<h3>Wpisałeś fałszywe pytanie ty oszukisto</h3>
+    <p>
+        <a href="{{url_for('index')}}">Strona Główna</a>
+    </p>
 </div>
 {% endblock %}
