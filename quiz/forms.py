@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  views.py
+#  forms.py
 #  
 from flask_wtf import FlaskForm
 from wtforms import StringField, HiddenField, BooleanField
@@ -25,3 +25,8 @@ class PytanieForm(FlaskForm):
     kategoria = SelectField('Kategoria')
     odpowiedzi = FieldList(FormField(OdpForm), min_entries=3)
     
+    
+    
+    
+
+

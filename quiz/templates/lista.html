@@ -1,10 +1,10 @@
 {% extends "szablon.html" %}
-{% block tytul %}Quiz - lista pytań{% endblock %}
-{% block h1 %}Quiz - lista pytań{% endblock %}
+{% block tytul %}Quiz – lista pytań{% endblock %}
+{% block h1 %}Quiz – lista pytań{% endblock %}
 
 {% block tresc %}
     {% for p in query %}
-    <p class="lead">
+    <p>
         {{ p.id }} {{ p.pytanie }}
     </p>
     {% endfor %}

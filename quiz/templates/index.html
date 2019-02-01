@@ -1,9 +1,9 @@
 {% extends "szablon.html" %}
-{% block tytul %}Quiz - pytania dla kozaków{% endblock %}
-{% block h1 %}Pytania dla odważnych{% endblock %}
+{% block tytul %}Quiz – pytania dla odważnych{% endblock %}
+{% block h1 %}Quiz – pytania dla odważnych{% endblock %}
 
 {% block tresc %}
-    <div id="komunikaty" class="lead">
+    <div id="komunikaty">
         {% with komunikaty = get_flashed_messages(with_categories=true) %}
         {% if komunikaty %}
             {% for kategoria, komunikat in komunikaty %}
