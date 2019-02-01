@@ -5,7 +5,7 @@
 #  
 from flask import Flask
 from flask import render_template, request
-from flask import redirect, url_for, flash
+from flask import redirect, url_for, flash, abort
 from modele import *
 from forms import *
 
@@ -35,15 +35,15 @@ def quiz():
     pytania = Pytanie.select().join(Odpowiedz).distinct().order_by(Pytanie.id)
     return render_template('quiz.html', query = pytania)
 
-
 def flash_errors(form):
     for field, errors in form.errors.items():
         for error in errors:
             if type(error) is list:
                 error = error[0]
             flash("Błąd: {}. Pole: {}".format(
-                error, 
+                error,
                 getattr(form, field).label.text))
+
 
 @app.route("/dodaj", methods=['GET', 'POST'])
 def dodaj():
@@ -55,12 +55,29 @@ def dodaj():
         p = Pytanie(pytanie=form.pytanie.data, kategoria=form.kategoria.data)
         p.save()
         for o in form.odpowiedzi.data:
-            odp = Odpowiedz(odpowiedz=o['odpowiedz'], 
-                            pytanie=p.id, 
+            odp = Odpowiedz(odpowiedz=o['odpowiedz'],
+                            pytanie=p.id,
                             odpok=int(o['odpok']))
             odp.save()
+        flash('Dodano pytanie: {}'.format(form.pytanie.data))
         return redirect(url_for('lista'))
+        
     elif request.method == 'POST':
         flash_errors(form)
-        
+    
     return render_template('dodaj.html', form=form)
+
+def get_or_404(pid):
+    try:
+        p = Pytanie.get_by_id(pid)
+        return p
+    except Pytanie.DoesNotExist:
+        abort(404)
+        
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+@app.route("/edytuj/<int:pid>", methods=['GET', 'POST'])
+def edytuj(pid):
+    p = get_or_404(pid)
