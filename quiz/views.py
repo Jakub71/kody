@@ -112,5 +112,11 @@ def edytuj(pid):
 @app.route("/usun/<int:pid>", methods=['GET', 'POST'])
 def usun(pid):
     p = get_or_404(pid)
-    
+    if request.method == 'POST':
+        flash('Usunięto pytanie {}'.format(p.pytanie), 'sukces')
+        for o in Odpowiedz.select().where(Odpowiedz.pytanie == p.id):
+            o.delete_instance()
+        p.delete_instance()
+        return redirect(url_for('lista'))   
+         
     return render_template("pytanie_usun.html", pytanie = p)
