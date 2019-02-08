@@ -87,7 +87,18 @@ def edytuj(pid):
     
     if form.validate_on_submit():
         print(form.data)
-    
+        p.pytanie = form.pytanie.data
+        p.kategoria = form.kategoria.data
+        p.save()
+        for o in form.odpowiedzi.data:
+            odp = Odpowiedz.get_by_id(o['id'])
+            odp.odpowiedz = o['odpowiedz']
+            odp.odpok = int(o['odpok'])
+            odp.save()
+        flash("Zaktualizowano pytanie: {}".format(form.pytanie.data))
+        return redirect(url_for('lista'))
+    elif request.method == 'POST':
+        flash_errors(form)
     
     
     odpowiedzi = []
@@ -97,3 +108,9 @@ def edytuj(pid):
     print(odpowiedzi)
     
     return render_template("edytuj.html", form=form)
+
+@app.route("/usun/<int:pid>", methods=['GET', 'POST'])
+def usun(pid):
+    p = get_or_404(pid)
+    
+    return render_template("pytanie_usun.html", pytanie = p)
