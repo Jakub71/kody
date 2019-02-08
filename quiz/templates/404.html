@@ -1,12 +1,12 @@
 {% extends "szablon.html" %}
-{% block tytul %}Quiz – Strony nie znaleziono{% endblock %}
+{% block tytul %}Quiz – strony nie znaleziono{% endblock %}
 {% block h1 %}Quiz – błąd{% endblock %}
 
 {% block tresc %}
 <div class="alert alert-warning">
-<h3>Wpisałeś fałszywe pytanie ty oszukisto</h3>
+    <h3>Przepraszamy, wystąpił błąd.</h3>
     <p>
-        <a href="{{url_for('index')}}">Strona Główna</a>
+        <a href="{{ url_for('index') }}">Strona główna</a>
     </p>
 </div>
 {% endblock %}
