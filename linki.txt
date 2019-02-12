@@ -1,1 +1,13 @@
 https://github.com/webmaster-2018/flaskapp-Jakub71
+
+
+1bit
+1B = 8bit
+2^10 = 1024B = 1KB
+10 ^ 3 = 1000B = 1KB ( partycje)
+2^10 = 1024 KB = 1MB
+2^10 = 1024 MB = 1GB
+2^10 = 1024 GB = 1TB
+
+1KB 1Kb
+1MB 1Mb(bit przepływność)
