@@ -34,7 +34,7 @@ def dekoduj():
     
     
 def main(args):
-    
+    dekoduj()
     koduj()
     return 0
 
