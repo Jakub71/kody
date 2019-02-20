@@ -29,9 +29,9 @@ int main(int argc, char **argv)
 	int klucz = 0;
     
     cout << "Podaj tekst: " << endl;
-    //cin.getline(tekst, MAKS);
+    cin.getline(tekst, MAKS);
     //cout << cin.gcount()<< endl;
-    cout << strlen(tekst) << endl;
+    //cout << strlen(tekst) << endl;
     cout << "Podaj klucz: " << endl;
     cin >> klucz;
     
