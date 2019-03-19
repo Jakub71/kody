@@ -1,0 +1,23 @@
+Sieć 
+
+LAN (Local Area Network)
+Ethernet, skrętka, rj45, switch, 
+
+sieci budowane są w oparciu o topologię gwiazdy
+
+Adres MAC (unikalny w skali światowej) np. 1C:1B:0D:EA:D4:5B
+
+Serwer DHCP
+
+router:
+interfejs wewnetrzny (LAN)
+interfejs zewnętrzny (WAN - Wide Area Network)
+
+ADRES IPv4:
+Adresy lokalne
+192.168.3.18
+
+Adres publiczny: 79.185.91.32 - 32 bity
+
+serwery DNS (Domain Name System)
+
