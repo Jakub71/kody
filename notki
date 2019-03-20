@@ -21,3 +21,23 @@ Adres publiczny: 79.185.91.32 - 32 bity
 
 serwery DNS (Domain Name System)
 
+protokół ( najważniejsze to: HTTP, )
+HTTP działa domyślnie na:80
+POST
+protkół bezstanowy
+SESJE + COOKIES ( nie należy do HTTP)
+
+protokół FTP:
+93.157.100.92, login, hasło
+UPLOAD Aplikacji Sieciowych
+
+protokół SMTP (Simple Mail Transfer Protocol)
+POP3- odbiór poczty elektronicznej ze zdalnego serwera
+IMAP
+
+kapsułkowanie(enkapsulacja)- opakowywanie informacji wysyłanych przez
+
+TCO - segment, protokół połączeniowy
+
+
+
