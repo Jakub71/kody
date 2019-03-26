@@ -41,3 +41,17 @@ TCO - segment, protokół połączeniowy
 
 
 ARP- protokół, w LAN
+
+UDP, bezpołączeniowy, bezstanowy, zawodny:
+DNS, streaming, komunikatory AV, gry online
+
+WARSTWA INTERNETU
+IO, ADRES ŹRÓDŁOWY, ADRES DOCELOWY
+NAT, translacja adresów sieciowych, 
+pakiety
+
+Warstwa dostępu do sieci
+
+DHCP: adres ip, adres gateway, dns
+
+
