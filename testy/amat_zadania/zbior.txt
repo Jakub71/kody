@@ -1,0 +1,6 @@
+12 134 34 56 123 67 4 567 25 111  
+           
+           
+          Największa 567
+          Najmniejsza 4
+          Średnia 285,5
