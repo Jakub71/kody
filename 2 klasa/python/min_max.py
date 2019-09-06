@@ -39,7 +39,7 @@ def main(args):
     lista = []
     for i in range(100):
         lista.append(random.randint(1,100))
-    #print(lista)
+    print(lista)
     min, max = minmax2(lista)
     print("Najmniejsza liczba: ", min)
     print("Największa liczba: ", max)
