@@ -1,0 +1,5 @@
+GRANT USAGE ON *.* TO 'ewa'@localhost IDENTIFIED BY 'zaq1@WSX'; - tworzenie uzytkownika
+
+CREATE DATABASE IF NOT EXISTS uczniowie3ag1
+
+GRANT ALL PRIVILEGES ON uczniowie3ag1.* TO 'ewa'@localhost;
