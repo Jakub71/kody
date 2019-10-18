@@ -3,3 +3,5 @@ GRANT USAGE ON *.* TO 'ewa'@localhost IDENTIFIED BY 'zaq1@WSX'; - tworzenie uzyt
 CREATE DATABASE IF NOT EXISTS uczniowie3ag1
 
 GRANT ALL PRIVILEGES ON uczniowie3ag1.* TO 'ewa'@localhost;
+
+LOAD DATA LOCAL INFILE 'uczniowie.csv' INTO TABLE uczniowie FIELDS TERMINATED BY ';' OPTIONALLY ENCLOSED BY '"'  
