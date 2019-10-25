@@ -1,30 +1,41 @@
 DROP TABLE IF EXISTS znajomosci;
 CREATE TABLE znajomosci (
- znajomy1 INTEGER PRIMARY KEY,
+ znajomy1 INTEGER,
  znajomy2 INTEGER,
- data DATE NOT NULL
-);
-
-DROP TABLE IF EXISTS przedmioty;
-CREATE TABLE przedmioty (
- id_uzytkownika INTEGER PRIMARY KEY AUTO_INCREMENT,
- imie VARCHAR(70)NOT NULL CHECK (przedmiot <> '')
- nazwisko
- id_kraju
- plec BOOLEAN
-);
-
-DROP TABLE IF EXISTS oceny;
-CREATE TABLE oceny (
- id_oceny INTEGER PRIMARY KEY AUTO_INCREMENT,
  data DATE NOT NULL,
- id_ucz CHAR(8) ,
- przedmiot INTEGER,
- oceny DECIMAL(3,2),
- FOREIGN KEY (id_ucz) REFERENCES uczniowie(id_ucz)
+ FOREIGN KEY (znajomy1) REFERENCES uzytkownicy(id_uzytkownika)
  ON DELETE CASCADE,
- FOREIGN KEY (przedmiot) REFERENCES przedmioty(id_przedmioty)
- ON DELETE SET NULL
+ FOREIGN KEY (znajomy2) REFERENCES uzytkownicy(id_uzytkownika)
+ ON DELETE CASCADE
 );
+
+DROP TABLE IF EXISTS uzytkownicy;
+CREATE TABLE uzytkownicy (
+ id_uzytkownika INTEGER PRIMARY KEY AUTOINCREMENT,
+ imie VARCHAR(30) NOT NULL CHECK (imie <> ''),
+ nazwisko VARCHAR(40) NOT NULL CHECK (nazwisko <> ''),
+ id_kraju INTEGER,
+ plec CHAR(1),
+ FOREIGN KEY (id_kraju) REFERENCES kraje(id_kraje)
+ ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS kraje;
+CREATE TABLE kraje (
+ id_kraje INTEGER PRIMARY KEY AUTOINCREMENT,
+ kraj TEXT
+);
+
+DROP TABLE IF EXISTS zdjecia;
+CREATE TABLE zdjecia (
+ id_zdjecia INTEGER PRIMARY KEY AUTOINCREMENT,
+ data_dodania DATE,
+ id_uzytkownika INTEGER,
+ szerokosc INTEGER,
+ wysokosc INTEGER,
+ FOREIGN KEY (id_uzytkownika) REFERENCES uzytkownicy(id_uzytkownika)
+ ON DELETE CASCADE
+);
+
 
 
