@@ -1,12 +1,9 @@
 DROP TABLE IF EXISTS znajomosci;
 CREATE TABLE znajomosci (
- znajomy1 INTEGER,
- znajomy2 INTEGER,
+ znajomy1 INTEGER NOT NULL REFERENCES uzytkownicy(id_uzytkownika) ON DELETE CASCADE,
+ znajomy2 INTEGER NOT NULL REFERENCES uzytkownicy(id_uzytkownika) ON DELETE CASCADE,
  data DATE NOT NULL,
- FOREIGN KEY (znajomy1) REFERENCES uzytkownicy(id_uzytkownika)
- ON DELETE CASCADE,
- FOREIGN KEY (znajomy2) REFERENCES uzytkownicy(id_uzytkownika)
- ON DELETE CASCADE
+ PRIMARY KEY(znajomy1, znajomy2)
 );
 
 DROP TABLE IF EXISTS uzytkownicy;
