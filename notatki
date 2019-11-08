@@ -1,0 +1,32 @@
+SELECT COUNT(*) FROM uczniowie;
+SELECT COUNT(*) FROM uczniowie WHERE plec = 1;
+SELECT COUNT(CASE WHEN plec THEN 1 END),
+COUNT(CASE WHEN NOT plec THEN 0 END) FROM uczniowie;
+
+SELECT COUNT(CASE WHEN plec THEN 1 END) AS liczba_kobiet,COUNT(CASE WHEN NOT plec THEN 0 END) AS liczba_mężczyzn FROM uczniowie;
+
+SELECT SUM(plec) AS liczba_kobiet, COUNT(*) - SUM(plec) AS liczba_mężczyzn FROM uczniowie;
+
+SELECT ROUND(AVG(egz_hum), 2), ROUND(AVG(egz_mat), 2), ROUND(AVG(egz_jez), 2) FROM uczniowie;
+
+
+SELECT ROUND(AVG(egz_hum)), ROUND(AVG(egz_mat)), ROUND(AVG(egz_jez))FROM uczniowie WHERE plec = 1;
+
+SELECT plec, ROUND(AVG(egz_hum),2), ROUND(AVG(egz_mat),2), ROUND(AVG(egz_jez),2) FROM uczniowie WHERE plec = 1;
+
+SELECT plec, ROUND(AVG(egz_hum),2)FROM uczniowie GROUP BY plec;
+
+SELECT plec,ROUND(AVG(egz_hum),2) AS średnia, COUNT(*) AS liczba_osób FROM uczniowie GROUP BY plec;
+
+SELECT klasa, COUNT(*) FROM uczniowie INNER JOIN klasy ON uczniowie.id_klasa=klasy.id GROUP BY klasa;
+
+SELECT klasa, COUNT(*) FROM uczniowie INNER JOIN klasy ON uczniowie.id_klasa=klasy.id WHERE plec = 1 GROUP BY id_klasa ORDER BY liczba_uczniów DESC;
+
+
+
+SELECT klasa, ROUND(AVG(ocena),2) AS średnia FROM uczniowie INNER JOIN klasy ON uczniowie.id_klasa=klasy.id INNER JOIN oceny ON uczniowie.id=oceny.id_uczen GROUP BY klasa;
+SELECT przedmiot, ROUND(AVG(ocena),2) AS średnia FROM przedmioty INNER JOIN oceny ON przedmioty.id=oceny.id_przedmiot GROUP BY przedmiot;
+SELECT przedmiot, COUNT(*) FROM przedmioty INNER JOIN oceny ON przedmioty.id=oceny.id_przedmiot WHERE ocena = 5 GROUP BY przedmiot;
+SELECT plec, ROUND(AVG(ocena),2) AS średnia FROM uczniowie INNER JOIN oceny ON uczniowie.id=oceny.id_uczen GROUP BY plec;
+
+
