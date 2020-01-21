@@ -1,3 +1,6 @@
+#ifndef _LISTA_H_
+#define _LISTA_H_
+
 typedef struct ELEMENT{
     int value;
     ELEMENT *next;
@@ -21,3 +24,4 @@ class Lista {
         void Wyswietl();
         bool Pusta();
 };
+#endif
